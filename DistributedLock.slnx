@@ -2,5 +2,6 @@
   <Project Path="DistributedLock.Client/DistributedLock.Client.csproj" />
   <Project Path="DistributedLock.Protocol/DistributedLock.Protocol.csproj" />
   <Project Path="DistributedLock.Provider/DistributedLock.Provider.csproj" />
+  <Project Path="DistributedLock.Testing/DistributedLock.Testing.csproj" />
   <Project Path="Test.DistributedLock.Protocol/Test.DistributedLock.Protocol.csproj" />
 </Solution>
