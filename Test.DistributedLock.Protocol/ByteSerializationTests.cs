@@ -27,8 +27,8 @@ public abstract class ByteSerializationTest<T>
 			var y = CreateSerializable(new Random(i));
 			var yBuffer = new byte[T.RequiredBufferSize];
 			var yBytes = y.ToBytes(yBuffer);
-			_output.WriteLine("X bytes: {}", xBytes.ToArray());
-			_output.WriteLine("Y bytes: {}", yBytes.ToArray());
+			_output.WriteLine("X bytes: {0}", xBytes.ToArray());
+			_output.WriteLine("Y bytes: {0}", yBytes.ToArray());
 			Assert.True(xBuffer.SequenceEqual(yBuffer));
 		}
 	}
@@ -49,10 +49,10 @@ public abstract class ByteSerializationTest<T>
 	
 }
 
-public class WriteRequestSerializationTest(ITestOutputHelper outputHelper)
-	: ByteSerializationTest<WriteRequest>(outputHelper)
+public class AcquireRequestSerializationTest(ITestOutputHelper outputHelper)
+	: ByteSerializationTest<AcquireRequest>(outputHelper)
 {
-	protected override WriteRequest CreateSerializable(Random random)
+	protected override AcquireRequest CreateSerializable(Random random)
 	{
 		var messageFrame = CreateMessageFrame(random);
 		var clientId = CreateGuid(random);

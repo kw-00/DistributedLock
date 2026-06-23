@@ -23,6 +23,11 @@ public ref struct ByteWriter
 		Bytes[_index++] = value;
 	}
 
+	public void WriteBool(bool value)
+	{
+		WriteByte(value ? (byte)1 : (byte)0);
+	}
+
 	public void WriteShort(short value)
 	{
 		BinaryPrimitives.WriteInt16LittleEndian(
@@ -74,10 +79,5 @@ public ref struct ByteWriter
 			Bytes[_index..]
 		);
 		_index += 16;
-	}
-
-	public void WriteMessageFrame(MessageFrame frame)
-	{
-		WriteGuid(frame.RequestId);
 	}
 }

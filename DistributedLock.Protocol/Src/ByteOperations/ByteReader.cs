@@ -32,6 +32,11 @@ public ref struct ByteReader
         return Bytes[_index++];
     }
 
+    public bool ReadBool()
+    {
+        return ReadByte() == 1;
+    }
+
     public short ReadShort()
     {
         var result = BinaryPrimitives
@@ -77,11 +82,5 @@ public ref struct ByteReader
         var bytes = Bytes.Slice(_index, 16);
         _index += 16;
         return new Guid(bytes); 
-    }
-
-    public MessageFrame ReadMessageFrame()
-    {
-        var requestId = ReadGuid();
-        return new MessageFrame(requestId);
     }
 }
